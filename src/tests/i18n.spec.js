@@ -1,5 +1,6 @@
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
+import TestUtils from 'react-dom/test-utils';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import moment from 'moment';
 import _ from 'underscore';
 import CalendarMonth from '../calendar/CalendarMonth';
@@ -43,7 +44,7 @@ describe('Localization', function () {
     };
 
     this.useShallowRenderer = (props) => {
-      this.shallowRenderer = TestUtils.createRenderer();
+      this.shallowRenderer = new ShallowRenderer();
       this.shallowRenderer.render(getCalendarMonth(props));
       this.renderedComponent = this.shallowRenderer.getRenderOutput();
       this.container = this.renderedComponent.props.children[0];

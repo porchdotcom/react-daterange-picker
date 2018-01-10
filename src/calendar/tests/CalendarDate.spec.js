@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
+import ShallowRenderer from 'react-test-renderer/shallow';
+import TestUtils from 'react-dom/test-utils';
 import moment from 'moment';
 import _ from 'underscore';
 
@@ -55,7 +56,7 @@ describe('The CalendarDate Component', function () {
     };
 
     this.useShallowRenderer = (props) => {
-      this.shallowRenderer = TestUtils.createRenderer();
+      this.shallowRenderer = new ShallowRenderer();
       this.shallowRenderer.render(getCalendarDate(props));
       this.renderedComponent = this.shallowRenderer.getRenderOutput();
     };
